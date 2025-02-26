@@ -25,7 +25,7 @@ def count_numbers(a, b):
                     count+=1
                     a+=1
     return count
-print(count_numbers(518, 875)) # 4
+#print(count_numbers(518, 875)) # 4
 
 # print(count_numbers(1, 100)) # 6
 # print(count_numbers(60, 70)) # 0
