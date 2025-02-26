@@ -15,7 +15,8 @@ def count_numbers(a, b):
                     break
                 else:
                     if a>=10:
-                        a=a+1*10**(number_length-(loop))
+                        right_digit=1*10**(number_length-(loop))
+                        a=a+right_digit-a%right_digit
                         break
                 a+=1
             else:
@@ -24,9 +25,10 @@ def count_numbers(a, b):
                     count+=1
                     a+=1
     return count
+print(count_numbers(518, 875)) # 4
 
-print(count_numbers(1, 100)) # 6
-print(count_numbers(60, 70)) # 0
-print(count_numbers(25, 25)) # 1
-print(count_numbers(1, 10**9)) # 1022
-print(count_numbers(123456789, 987654321)) # 512
+# print(count_numbers(1, 100)) # 6
+# print(count_numbers(60, 70)) # 0
+# print(count_numbers(25, 25)) # 1
+# print(count_numbers(1, 10**9)) # 1022
+# print(count_numbers(123456789, 987654321)) # 512
