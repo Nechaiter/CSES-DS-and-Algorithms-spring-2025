@@ -18,17 +18,48 @@ def count_sublists(numbers, x):
     return result   
 
 
-numbers=[2,3,5,-3,4,4,6,2]
-x=5
-print(count_sublists(numbers,x))
+# numbers=[2,3,5,-3,4,4,6,2]
+# x=5
+# print(count_sublists(numbers,x))
+
+def create_distribution(string):
+    length = len(string)
+    substrings = set()
+
+    for start in range(length):
+        print(length)
+        for end in range(start + 1, length + 1):
+            print(start,end)
+            print(string[start:end])
+            substring = string[start:end]
+            substrings.add(substring)
+
+    distribution = {}
+    for substring_length in range(1, length + 1):
+        distribution[substring_length] = 0
+
+    for substring in substrings:
+        distribution[len(substring)] += 1
+
+    return distribution
+
+# print(create_distribution("aybabtu"))
+    # {1: 5, 2: 6, 3: 5, 4: 4, 5: 3, 6: 2, 7: 1}
 
 
 
-for i in range(n):
-        if b == len(right) or \
-           (a < len(left) and left[a] < right[b]):
-            items[i] = left[a]
-            a += 1
-        else:
-            items[i] = right[b]
-            b += 1
+def max_length(songs):
+    n = len(songs)
+    
+    pos = {}
+    start = 0
+    length = 0
+    
+    for i, song in enumerate(songs):
+        if song in pos:
+            start = max(start, pos[song] + 1)
+        length = max(length, i - start + 1)
+        pos[song] = i
+        
+    return length
+print(max_length([1,2,1,3,5,4,3,1]))
